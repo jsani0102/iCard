@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AFF21184ECF0F00D04465 /* ConnectViewController.m */; };
 		542AFF2418500E2B00D04465 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AFF2318500E2B00D04465 /* Parse.framework */; };
-		542AFF2618500E6700D04465 /* Parse.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AFF2518500E6700D04465 /* Parse.h */; };
 		54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */; };
 		54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */; };
 		54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D63184BDCEF00DAE6A7 /* UIKit.framework */; };
@@ -93,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				542AFF2618500E6700D04465 /* Parse.h in Frameworks */,
 				54B02D9E184C536700DAE6A7 /* AudioToolbox.framework in Frameworks */,
 				54B02D9F184C536700DAE6A7 /* CFNetwork.framework in Frameworks */,
 				54B02DA0184C536700DAE6A7 /* CoreLocation.framework in Frameworks */,
