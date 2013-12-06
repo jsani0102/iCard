@@ -13,6 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // integrate app with parse
     [Parse setApplicationId:@"otHc31bBimv9hdqjUVQtqXYXbyx4WbiOHGlIaC5u"
                   clientKey:@"P2vXJGcyQ4vAxy5E4bB7Ep3yFb2O4jgMaJYRzFSW"];
     return YES;

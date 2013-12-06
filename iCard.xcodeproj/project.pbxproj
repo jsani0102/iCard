@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AFF21184ECF0F00D04465 /* ConnectViewController.m */; };
-		542AFF2418500E2B00D04465 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 542AFF2318500E2B00D04465 /* Parse.framework */; };
+		549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549ACF6818503BFD00A513FC /* YouriCardViewController.m */; };
 		54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */; };
 		54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */; };
 		54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D63184BDCEF00DAE6A7 /* UIKit.framework */; };
@@ -35,6 +35,8 @@
 		54B02DAB184C555400DAE6A7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAA184C555400DAE6A7 /* LoginViewController.m */; };
 		54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAD184C556200DAE6A7 /* SignupViewController.m */; };
 		54B02DB3184D48B400DAE6A7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B02DB2184D48B400DAE6A7 /* friends.png */; };
+		54B7E9B31851227F0044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9B21851227F0044BD0D /* Parse.framework */; };
+		54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7E9F918512A040044BD0D /* ViewContactViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +52,8 @@
 /* Begin PBXFileReference section */
 		542AFF20184ECF0F00D04465 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
 		542AFF21184ECF0F00D04465 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
-		542AFF2318500E2B00D04465 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		542AFF2518500E6700D04465 /* Parse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Parse.h; path = Parse.framework/Versions/1.2.16/Headers/Parse.h; sourceTree = "<group>"; };
+		549ACF6718503BFD00A513FC /* YouriCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouriCardViewController.h; sourceTree = "<group>"; };
+		549ACF6818503BFD00A513FC /* YouriCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouriCardViewController.m; sourceTree = "<group>"; };
 		54B02D5C184BDCEE00DAE6A7 /* iCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +87,9 @@
 		54B02DAC184C556200DAE6A7 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		54B02DAD184C556200DAE6A7 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		54B02DB2184D48B400DAE6A7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friends.png; path = iCard/friends.png; sourceTree = "<group>"; };
+		54B7E9B21851227F0044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		54B7E9F818512A040044BD0D /* ViewContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewContactViewController.h; sourceTree = "<group>"; };
+		54B7E9F918512A040044BD0D /* ViewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewContactViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +103,12 @@
 				54B02DA1184C536700DAE6A7 /* libz.1.1.3.dylib in Frameworks */,
 				54B02DA2184C536700DAE6A7 /* MobileCoreServices.framework in Frameworks */,
 				54B02DA3184C536700DAE6A7 /* QuartzCore.framework in Frameworks */,
+				54B7E9B31851227F0044BD0D /* Parse.framework in Frameworks */,
 				54B02DA4184C536700DAE6A7 /* Security.framework in Frameworks */,
 				54B02DA5184C536700DAE6A7 /* StoreKit.framework in Frameworks */,
 				54B02DA6184C536700DAE6A7 /* SystemConfiguration.framework in Frameworks */,
 				54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */,
 				54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */,
-				542AFF2418500E2B00D04465 /* Parse.framework in Frameworks */,
 				54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,8 +150,7 @@
 		54B02D5E184BDCEE00DAE6A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				542AFF2518500E6700D04465 /* Parse.h */,
-				542AFF2318500E2B00D04465 /* Parse.framework */,
+				54B7E9B21851227F0044BD0D /* Parse.framework */,
 				54B02D95184C536700DAE6A7 /* AudioToolbox.framework */,
 				54B02D96184C536700DAE6A7 /* CFNetwork.framework */,
 				54B02D97184C536700DAE6A7 /* CoreLocation.framework */,
@@ -177,6 +181,10 @@
 				54B02DAD184C556200DAE6A7 /* SignupViewController.m */,
 				542AFF20184ECF0F00D04465 /* ConnectViewController.h */,
 				542AFF21184ECF0F00D04465 /* ConnectViewController.m */,
+				549ACF6718503BFD00A513FC /* YouriCardViewController.h */,
+				549ACF6818503BFD00A513FC /* YouriCardViewController.m */,
+				54B7E9F818512A040044BD0D /* ViewContactViewController.h */,
+				54B7E9F918512A040044BD0D /* ViewContactViewController.m */,
 				54B02D71184BDCEF00DAE6A7 /* Images.xcassets */,
 				54B02D66184BDCEF00DAE6A7 /* Supporting Files */,
 			);
@@ -321,8 +329,10 @@
 				542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */,
 				54B02D70184BDCEF00DAE6A7 /* AppDelegate.m in Sources */,
 				54B02D92184BEF1600DAE6A7 /* ContactsViewController.m in Sources */,
+				54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */,
 				54B02D6C184BDCEF00DAE6A7 /* main.m in Sources */,
 				54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */,
+				549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +455,8 @@
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
+					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
+					/Users/sunilsani/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";
@@ -463,6 +475,8 @@
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
+					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
+					/Users/sunilsani/Downloads,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";

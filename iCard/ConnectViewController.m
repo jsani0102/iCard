@@ -7,6 +7,7 @@
 //
 
 #import "ConnectViewController.h"
+#import <Parse/Parse.h>
 
 @interface ConnectViewController ()
 
@@ -24,6 +25,34 @@
     // adds user to the parse backend database to show up in the contacts viewController
     NSString *username = self.usernameField.text;
     
-    // TODO - save PFRelation to parse between the two users and somehow navigate to the contactsViewController
+    PFUser *currentUser = [PFUser currentUser];
+    
+    // add the friend that the user typed into the text field to the friends array in the parse backend
+    PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+    [query whereKey:@"username" equalTo:currentUser.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                if(object[@"Friends"] == nil) {
+                    object[@"Friends"] = [[NSMutableArray alloc] init];
+                }
+                [object[@"Friends"] addObject:username];
+                [object saveInBackground];
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Great!" message:[[@"You are now connected with " stringByAppendingString:username] stringByAppendingString:@"!"] delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+
+            }
+        }
+        else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    // get rid of the keyboard after the user adds a friend
+    [self.usernameField resignFirstResponder];
+
+    
 }
 @end

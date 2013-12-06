@@ -10,6 +10,8 @@
 
 @interface ContactsViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *friends;
+
 - (IBAction)logout:(id)sender;
 
 @end
