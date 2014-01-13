@@ -35,8 +35,11 @@
 		54B02DAB184C555400DAE6A7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAA184C555400DAE6A7 /* LoginViewController.m */; };
 		54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAD184C556200DAE6A7 /* SignupViewController.m */; };
 		54B02DB3184D48B400DAE6A7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B02DB2184D48B400DAE6A7 /* friends.png */; };
-		54B7E9B31851227F0044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9B21851227F0044BD0D /* Parse.framework */; };
 		54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7E9F918512A040044BD0D /* ViewContactViewController.m */; };
+		54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FB1851A2950044BD0D /* Parse.framework */; };
+		54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FD1851A2A70044BD0D /* Parse.framework */; };
+		54B7EA0218527BAD0044BD0D /* MyiCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7EA0118527BAD0044BD0D /* MyiCard.png */; };
+		54B7EA0418527BB20044BD0D /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7EA0318527BB20044BD0D /* Connect.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,9 +90,12 @@
 		54B02DAC184C556200DAE6A7 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		54B02DAD184C556200DAE6A7 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		54B02DB2184D48B400DAE6A7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friends.png; path = iCard/friends.png; sourceTree = "<group>"; };
-		54B7E9B21851227F0044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		54B7E9F818512A040044BD0D /* ViewContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewContactViewController.h; sourceTree = "<group>"; };
 		54B7E9F918512A040044BD0D /* ViewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewContactViewController.m; sourceTree = "<group>"; };
+		54B7E9FB1851A2950044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		54B7E9FD1851A2A70044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		54B7EA0118527BAD0044BD0D /* MyiCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyiCard.png; sourceTree = "<group>"; };
+		54B7EA0318527BB20044BD0D /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +109,11 @@
 				54B02DA1184C536700DAE6A7 /* libz.1.1.3.dylib in Frameworks */,
 				54B02DA2184C536700DAE6A7 /* MobileCoreServices.framework in Frameworks */,
 				54B02DA3184C536700DAE6A7 /* QuartzCore.framework in Frameworks */,
-				54B7E9B31851227F0044BD0D /* Parse.framework in Frameworks */,
 				54B02DA4184C536700DAE6A7 /* Security.framework in Frameworks */,
 				54B02DA5184C536700DAE6A7 /* StoreKit.framework in Frameworks */,
 				54B02DA6184C536700DAE6A7 /* SystemConfiguration.framework in Frameworks */,
+				54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */,
+				54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */,
 				54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */,
 				54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */,
 				54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */,
@@ -150,7 +157,8 @@
 		54B02D5E184BDCEE00DAE6A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54B7E9B21851227F0044BD0D /* Parse.framework */,
+				54B7E9FB1851A2950044BD0D /* Parse.framework */,
+				54B7E9FD1851A2A70044BD0D /* Parse.framework */,
 				54B02D95184C536700DAE6A7 /* AudioToolbox.framework */,
 				54B02D96184C536700DAE6A7 /* CFNetwork.framework */,
 				54B02D97184C536700DAE6A7 /* CoreLocation.framework */,
@@ -223,6 +231,8 @@
 		54B02DB4184D48C000DAE6A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				54B7EA0118527BAD0044BD0D /* MyiCard.png */,
+				54B7EA0318527BB20044BD0D /* Connect.png */,
 				54B02DB2184D48B400DAE6A7 /* friends.png */,
 			);
 			name = Images;
@@ -306,6 +316,8 @@
 				54B02D8F184BDD1800DAE6A7 /* MainStoryboard.storyboard in Resources */,
 				54B02DB3184D48B400DAE6A7 /* friends.png in Resources */,
 				54B02D6A184BDCEF00DAE6A7 /* InfoPlist.strings in Resources */,
+				54B7EA0218527BAD0044BD0D /* MyiCard.png in Resources */,
+				54B7EA0418527BB20044BD0D /* Connect.png in Resources */,
 				54B02D72184BDCEF00DAE6A7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +463,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
@@ -462,6 +476,7 @@
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";
 				INFOPLIST_FILE = "iCard/iCard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -471,6 +486,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
@@ -482,6 +499,7 @@
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";
 				INFOPLIST_FILE = "iCard/iCard-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

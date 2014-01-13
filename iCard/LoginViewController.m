@@ -2,7 +2,7 @@
 //  LoginViewController.m
 //  iCard
 //
-//  Created by Jayant Sani on 12/2/13.
+//  Created by Jayant Sani and Jesse Jiang on 12/2/13.
 //  Copyright (c) 2013 Jayant Sani. All rights reserved.
 //
 

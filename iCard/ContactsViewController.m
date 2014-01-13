@@ -5,7 +5,7 @@
 // The friends.png image of this tab has been taken from a project on teamtreehouse.com titled "Building
 // a Self-destructing Message iPhone App."
 //
-//  Created by Jayant Sani on 12/1/13.
+//  Created by Jayant Sani and Jesse Jiang on 12/1/13.
 //  Copyright (c) 2013 Jayant Sani. All rights reserved.
 //
 

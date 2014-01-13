@@ -2,7 +2,7 @@
 //  ViewContactViewController.h
 //  iCard
 //
-//  Created by Jayant Sani on 12/5/13.
+//  Created by Jayant Sani and Jesse Jiang on 12/5/13.
 //  Copyright (c) 2013 Jayant Sani. All rights reserved.
 //
 
