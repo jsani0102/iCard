@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AFF21184ECF0F00D04465 /* ConnectViewController.m */; };
+		544121F0188D908D009CEF41 /* MyiCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EE188D908D009CEF41 /* MyiCard.png */; };
+		544121F1188D908D009CEF41 /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EF188D908D009CEF41 /* Connect.png */; };
 		549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549ACF6818503BFD00A513FC /* YouriCardViewController.m */; };
 		54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */; };
 		54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */; };
@@ -38,8 +40,6 @@
 		54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7E9F918512A040044BD0D /* ViewContactViewController.m */; };
 		54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FB1851A2950044BD0D /* Parse.framework */; };
 		54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FD1851A2A70044BD0D /* Parse.framework */; };
-		54B7EA0218527BAD0044BD0D /* MyiCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7EA0118527BAD0044BD0D /* MyiCard.png */; };
-		54B7EA0418527BB20044BD0D /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B7EA0318527BB20044BD0D /* Connect.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +55,8 @@
 /* Begin PBXFileReference section */
 		542AFF20184ECF0F00D04465 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
 		542AFF21184ECF0F00D04465 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
+		544121EE188D908D009CEF41 /* MyiCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyiCard.png; sourceTree = "<group>"; };
+		544121EF188D908D009CEF41 /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
 		549ACF6718503BFD00A513FC /* YouriCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouriCardViewController.h; sourceTree = "<group>"; };
 		549ACF6818503BFD00A513FC /* YouriCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouriCardViewController.m; sourceTree = "<group>"; };
 		54B02D5C184BDCEE00DAE6A7 /* iCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +96,6 @@
 		54B7E9F918512A040044BD0D /* ViewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewContactViewController.m; sourceTree = "<group>"; };
 		54B7E9FB1851A2950044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		54B7E9FD1851A2A70044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		54B7EA0118527BAD0044BD0D /* MyiCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyiCard.png; sourceTree = "<group>"; };
-		54B7EA0318527BB20044BD0D /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,8 +231,8 @@
 		54B02DB4184D48C000DAE6A7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				54B7EA0118527BAD0044BD0D /* MyiCard.png */,
-				54B7EA0318527BB20044BD0D /* Connect.png */,
+				544121EF188D908D009CEF41 /* Connect.png */,
+				544121EE188D908D009CEF41 /* MyiCard.png */,
 				54B02DB2184D48B400DAE6A7 /* friends.png */,
 			);
 			name = Images;
@@ -316,8 +316,8 @@
 				54B02D8F184BDD1800DAE6A7 /* MainStoryboard.storyboard in Resources */,
 				54B02DB3184D48B400DAE6A7 /* friends.png in Resources */,
 				54B02D6A184BDCEF00DAE6A7 /* InfoPlist.strings in Resources */,
-				54B7EA0218527BAD0044BD0D /* MyiCard.png in Resources */,
-				54B7EA0418527BB20044BD0D /* Connect.png in Resources */,
+				544121F0188D908D009CEF41 /* MyiCard.png in Resources */,
+				544121F1188D908D009CEF41 /* Connect.png in Resources */,
 				54B02D72184BDCEF00DAE6A7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

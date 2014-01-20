@@ -14,10 +14,11 @@
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramHandle;
 @property (weak, nonatomic) IBOutlet UITextField *facebookIDField;
-@property (weak, nonatomic) IBOutlet UITextField *twitterHandleField;
 @property (weak, nonatomic) IBOutlet UITextField *instagramHandleField;
 
-- (IBAction)enterFacebookTwitterInstagram:(id)sender;
+- (IBAction)enterFacebookAndInstagram:(id)sender;
+
+- (IBAction)connectToTwitter:(id)sender;
 
 
 
