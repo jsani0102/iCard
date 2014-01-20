@@ -105,6 +105,7 @@
         // the following code uses the Twitter API and the ACAccountStore class on the iOS platform that
         // accesses all the user's account this code was adapted from http://iosameer.blogspot.com/2012/10/follow-us-on-twitter-button-integration.html
         
+        // access the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
         ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
         [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
@@ -112,20 +113,25 @@
             {
                 NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
                 if ([accountsArray count] > 0) {
+                    // grab the first Twitter account
                     ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+                    // create a dictionary to change the json values in the friendship
                     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
                     [tempDict setValue:self.twitterHandle forKey:@"screen_name"];
                     [tempDict setValue:@"true" forKey:@"follow"];
                     NSString *urlString = @"https://api.twitter.com/1/friendships/create.json";
                     NSURL *url = [NSURL URLWithString:urlString];
+                    // send a post request to update the json values
                     SLRequest *postRequest  = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                                  requestMethod:SLRequestMethodPOST
                                                                            URL:url
                                                                     parameters:tempDict];
                     [postRequest setAccount:twitterAccount];
+                    // check that the Twitter following functionality succeeded
                     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
                         NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
                         NSLog(@"%@", output);
+                        // report UIAlertView messages as appropriate
                         if ([urlResponse statusCode] == 200)
                         {
                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.twitterHandle] stringByAppendingString:@" on Twitter!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
