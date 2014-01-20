@@ -110,7 +110,7 @@
 //        // integration.html
 //        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
 //        ACAccountType *accountType = [accountStore
-//                                      accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+//                                      accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter3];
 //        [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
 //            if(granted) {
 //                // Get the list of Twitter accounts.
