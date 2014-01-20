@@ -23,12 +23,12 @@
 	// Do any additional setup after loading the view.
 }
 
-- (IBAction)enterFacebookAndInstagram:(id)sender {
+- (IBAction)enterInstagram:(id)sender {
     // invalid input
-    if ([self.facebookIDField.text length] == 0 || [self.instagramHandleField.text length] == 0)
+    if ([self.instagramHandleField.text length] == 0)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input"
-                                                        message:@"Please input a FacebookID, Twitter handle, and an Instagram handle."
+                                                        message:@"Please input an Instagram handle."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
@@ -37,7 +37,6 @@
     else
     {
         // handle the input appropriately with the parse backend
-        self.facebookID = self.facebookIDField.text;
         self.instagramHandle = self.instagramHandleField.text;
         
         PFUser *currentUser = [PFUser currentUser];
@@ -61,16 +60,14 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Thanks!" message:@"Your Facebook, Instagram, and Twitter information are now synced with your account" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
         
-        self.facebookIDField.text = @"";
         self.instagramHandleField.text = @"";
         
         // get rid of the keyboard after the user has pressed "Enter"
-        [self.facebookIDField resignFirstResponder];
         [self.instagramHandleField resignFirstResponder];
     }
 }
 
-// the following code uses the Twitter API and the ACAccountStore class on the iOS platform that accesses all the user's accounts. It is the vision of this app, but we did not have enough time to perfect this across all social media.
+// the following code uses the Twitter API and the ACAccountStore class on the iOS platform that accesses all the user's accounts
 
 - (IBAction)connectToTwitter:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -113,10 +110,63 @@
             else
             {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                               message:@"Please go to Settings to configure your Twitter accounts!"
+                                                               message:@"Please go to Settings to configure your Twitter account!"
                                                               delegate:nil
                                                      cancelButtonTitle:@"OK"
                                                      otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            
+        }
+    }];
+}
+
+- (IBAction)connectToFacebook:(id)sender {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+        if(granted) {
+            // Get the list of Facebook accounts.
+            NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+            
+            if ([accountsArray count] > 0)
+            {
+                // ASSUMING ONE FACEBOOK ACCOUNT - TODO - TRY TO HANDLE MULTIPLE ONES WITH "MODAL" VIEW - Jeremy Sabath
+                ACAccount *facebookAccount = [accountsArray objectAtIndex:0];
+                self.facebookID = facebookAccount.username;
+                
+                // query the backend to update the facebook username accordingly
+                PFUser *currentUser = [PFUser currentUser];
+                PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+                [query whereKey:@"username" equalTo:currentUser.username];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        for (PFObject *object in objects) {
+                            object[@"FacebookID"] = self.facebookID;
+                            [object saveInBackground];
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congrats!"
+                                                                            message:@"Your account has been successfully connected to Facebook!"
+                                                                           delegate:nil
+                                                                  cancelButtonTitle:@"OK"
+                                                                  otherButtonTitles:nil];
+                            [alert show];
+                            return;
+                        }
+                    }
+                    else {
+                        // Log the error
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                }];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                                message:@"Please go to Settings to configure your Facebook account!"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
                 [alert show];
                 return;
             }

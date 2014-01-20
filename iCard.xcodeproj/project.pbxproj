@@ -10,6 +10,7 @@
 		542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AFF21184ECF0F00D04465 /* ConnectViewController.m */; };
 		544121F0188D908D009CEF41 /* MyiCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EE188D908D009CEF41 /* MyiCard.png */; };
 		544121F1188D908D009CEF41 /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EF188D908D009CEF41 /* Connect.png */; };
+		544121F3188DC700009CEF41 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544121F2188DC700009CEF41 /* FacebookSDK.framework */; };
 		549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549ACF6818503BFD00A513FC /* YouriCardViewController.m */; };
 		54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */; };
 		54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */; };
@@ -57,6 +58,7 @@
 		542AFF21184ECF0F00D04465 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		544121EE188D908D009CEF41 /* MyiCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyiCard.png; sourceTree = "<group>"; };
 		544121EF188D908D009CEF41 /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
+		544121F2188DC700009CEF41 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		549ACF6718503BFD00A513FC /* YouriCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouriCardViewController.h; sourceTree = "<group>"; };
 		549ACF6818503BFD00A513FC /* YouriCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouriCardViewController.m; sourceTree = "<group>"; };
 		54B02D5C184BDCEE00DAE6A7 /* iCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				54B02DA6184C536700DAE6A7 /* SystemConfiguration.framework in Frameworks */,
 				54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */,
 				54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */,
+				544121F3188DC700009CEF41 /* FacebookSDK.framework in Frameworks */,
 				54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */,
 				54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */,
 				54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */,
@@ -157,6 +160,7 @@
 		54B02D5E184BDCEE00DAE6A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				544121F2188DC700009CEF41 /* FacebookSDK.framework */,
 				54B7E9FB1851A2950044BD0D /* Parse.framework */,
 				54B7E9FD1851A2A70044BD0D /* Parse.framework */,
 				54B02D95184C536700DAE6A7 /* AudioToolbox.framework */,
@@ -471,6 +475,7 @@
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
 					/Users/sunilsani/Downloads,
+					/Users/sunilsani/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";
@@ -494,6 +499,7 @@
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
 					/Users/sunilsani/Downloads,
+					/Users/sunilsani/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iCard/iCard-Prefix.pch";
