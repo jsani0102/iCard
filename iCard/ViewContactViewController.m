@@ -74,8 +74,47 @@
     }
     else
     {
-        // go to the friend's facebook profile on the web
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://facebook.com/%@",self.facebookID]]];
+        // query the backend to retrieve the facebook username accordingly
+        PFUser *currentUser = [PFUser currentUser];
+        PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+        [query whereKey:@"username" equalTo:currentUser.username];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            // display the appropriate message
+            if (!error) {
+                for (PFObject *object in objects) {
+                    self.facebookID = object[@"FacebookID"];
+                }
+            }
+            else {
+                // Log the error
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+        
+        // configure the Graph API URL appropriately
+        NSString *fbGraph = [@"https://graph.facebook.com/" stringByAppendingString:self.facebookID];
+        NSURL *fbGraphURL = [NSURL URLWithString:fbGraph];
+        
+        // Parse the JSON data provided by the Graph API to find the user's ID
+        NSData *jsonData = [NSData dataWithContentsOfURL:fbGraphURL];
+        NSError *error = nil;
+        NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+        NSString *identifier = dataDictionary[@"id"];
+        
+        // configure the link to go to the correct page in the native Facebook App
+        NSString *nativeURLString = [@"fb://profile/" stringByAppendingString:identifier];
+        NSURL *nativeURL = [NSURL URLWithString:nativeURLString];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:nativeURL])
+        {
+            // if the native link can be opened, go to that link in the native app
+            [[UIApplication sharedApplication] openURL:nativeURL];
+        }
+        else
+        {
+            // go to the friend's facebook profile on Safari on the device
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://facebook.com/%@",self.facebookID]]];
+        }
     }
 }
 
@@ -130,7 +169,7 @@
                     // check that the Twitter following functionality succeeded
                     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
                         NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-                        NSLog(@"%@", output);
+                        // DEBUGGING TOOL - NSLog(@"%@", output);
                         // report UIAlertView messages as appropriate
                         if ([urlResponse statusCode] == 200)
                         {
