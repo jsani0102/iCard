@@ -126,13 +126,18 @@
 - (IBAction)connectToFacebook:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-    [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
+    
+    NSDictionary *options = @{
+                              @"ACFacebookAppIdKey" : @"392820127522035",
+                              @"ACFacebookPermissionsKey" : @[@"basic_info"]};
+    [accountStore requestAccessToAccountsWithType:accountType options:options completion:^(BOOL granted, NSError *error) {
         if(granted) {
             // Get the list of Facebook accounts.
             NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
             
             if ([accountsArray count] > 0)
             {
+                NSLog(@"HERE");
                 // ASSUMING ONE FACEBOOK ACCOUNT - TODO - TRY TO HANDLE MULTIPLE ONES WITH "MODAL" VIEW - Jeremy Sabath
                 ACAccount *facebookAccount = [accountsArray objectAtIndex:0];
                 self.facebookID = facebookAccount.username;
@@ -142,6 +147,7 @@
                 PFQuery *query = [PFQuery queryWithClassName:@"_User"];
                 [query whereKey:@"username" equalTo:currentUser.username];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    // display the appropriate message
                     if (!error) {
                         for (PFObject *object in objects) {
                             object[@"FacebookID"] = self.facebookID;
