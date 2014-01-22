@@ -23,8 +23,8 @@
 	// Do any additional setup after loading the view.
 }
 
-
 // the following code uses the Twitter API and the ACAccountStore class on the iOS platform that accesses all the user's accounts
+
 - (IBAction)connectToTwitter:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
@@ -93,7 +93,6 @@
             
             if ([accountsArray count] > 0)
             {
-                NSLog(@"HERE");
                 // ASSUMING ONE FACEBOOK ACCOUNT - TODO - TRY TO HANDLE MULTIPLE ONES WITH "MODAL" VIEW - Jeremy Sabath
                 ACAccount *facebookAccount = [accountsArray objectAtIndex:0];
                 self.facebookID = facebookAccount.username;

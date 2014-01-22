@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asa-Jx-bxP">
-                                <rect key="frame" x="20" y="182" width="280" height="30"/>
+                                <rect key="frame" x="20" y="145" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Connect to Twitter">
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuY-Jr-Efn">
-                                <rect key="frame" x="20" y="259" width="280" height="30"/>
+                                <rect key="frame" x="20" y="249" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Connect to Facebook">
@@ -58,15 +58,15 @@
                                     <action selector="connectToFacebook:" destination="ykI-It-VRn" eventType="touchUpInside" id="pdZ-eB-y70"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-LX-2oA">
-                                <rect key="frame" x="20" y="336" width="280" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltt-O1-ufx">
+                                <rect key="frame" x="20" y="354" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Sign-in to Instagram">
+                                <state key="normal" title="Connect to Instagram">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="030-9l-g3P" kind="push" id="e7X-fV-bUv"/>
+                                    <segue destination="b6e-77-MfV" kind="push" id="iEF-ft-Rx3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,23 +79,23 @@
             <point key="canvasLocation" x="694" y="98"/>
         </scene>
         <!--Instagram View Controller-->
-        <scene sceneID="gLm-Di-A9X">
+        <scene sceneID="4T3-tY-nz0">
             <objects>
-                <viewController id="030-9l-g3P" customClass="InstagramViewController" sceneMemberID="viewController">
+                <viewController id="b6e-77-MfV" customClass="InstagramViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4hO-jp-Wvh"/>
-                        <viewControllerLayoutGuide type="bottom" id="XdX-ZO-nlC"/>
+                        <viewControllerLayoutGuide type="top" id="BnS-Ue-VEw"/>
+                        <viewControllerLayoutGuide type="bottom" id="nce-54-y0v"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PVX-bI-fY6">
+                    <view key="view" contentMode="scaleToFill" id="i4C-iN-MA9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rd6-gq-pCU"/>
+                    <navigationItem key="navigationItem" id="HVG-be-thN"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jf2-5y-Z7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cC9-3l-uPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="98"/>
+            <point key="canvasLocation" x="1163" y="98"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="nbg-fg-RN3">

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5422E907188F514600E7EBDF /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5422E906188F514600E7EBDF /* InstagramViewController.m */; };
 		542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AFF21184ECF0F00D04465 /* ConnectViewController.m */; };
 		544121F0188D908D009CEF41 /* MyiCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EE188D908D009CEF41 /* MyiCard.png */; };
 		544121F1188D908D009CEF41 /* Connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 544121EF188D908D009CEF41 /* Connect.png */; };
 		544121F3188DC700009CEF41 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 544121F2188DC700009CEF41 /* FacebookSDK.framework */; };
-		544121F6188ED9C2009CEF41 /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544121F5188ED9C2009CEF41 /* InstagramViewController.m */; };
 		549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 549ACF6818503BFD00A513FC /* YouriCardViewController.m */; };
 		54B02D60184BDCEF00DAE6A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D5F184BDCEE00DAE6A7 /* Foundation.framework */; };
 		54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B02D61184BDCEF00DAE6A7 /* CoreGraphics.framework */; };
@@ -55,13 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5422E905188F514600E7EBDF /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramViewController.h; sourceTree = "<group>"; };
+		5422E906188F514600E7EBDF /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramViewController.m; sourceTree = "<group>"; };
 		542AFF20184ECF0F00D04465 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
 		542AFF21184ECF0F00D04465 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		544121EE188D908D009CEF41 /* MyiCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyiCard.png; sourceTree = "<group>"; };
 		544121EF188D908D009CEF41 /* Connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Connect.png; sourceTree = "<group>"; };
 		544121F2188DC700009CEF41 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		544121F4188ED9C2009CEF41 /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramViewController.h; sourceTree = "<group>"; };
-		544121F5188ED9C2009CEF41 /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramViewController.m; sourceTree = "<group>"; };
 		549ACF6718503BFD00A513FC /* YouriCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouriCardViewController.h; sourceTree = "<group>"; };
 		549ACF6818503BFD00A513FC /* YouriCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouriCardViewController.m; sourceTree = "<group>"; };
 		54B02D5C184BDCEE00DAE6A7 /* iCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,16 +192,16 @@
 				542AFF21184ECF0F00D04465 /* ConnectViewController.m */,
 				54B02D90184BEF1600DAE6A7 /* ContactsViewController.h */,
 				54B02D91184BEF1600DAE6A7 /* ContactsViewController.m */,
-				544121F4188ED9C2009CEF41 /* InstagramViewController.h */,
-				544121F5188ED9C2009CEF41 /* InstagramViewController.m */,
+				5422E905188F514600E7EBDF /* InstagramViewController.h */,
+				5422E906188F514600E7EBDF /* InstagramViewController.m */,
 				54B02DA9184C555400DAE6A7 /* LoginViewController.h */,
 				54B02DAA184C555400DAE6A7 /* LoginViewController.m */,
 				54B02DAC184C556200DAE6A7 /* SignupViewController.h */,
 				54B02DAD184C556200DAE6A7 /* SignupViewController.m */,
-				54B7E9F818512A040044BD0D /* ViewContactViewController.h */,
-				54B7E9F918512A040044BD0D /* ViewContactViewController.m */,
 				549ACF6718503BFD00A513FC /* YouriCardViewController.h */,
 				549ACF6818503BFD00A513FC /* YouriCardViewController.m */,
+				54B7E9F818512A040044BD0D /* ViewContactViewController.h */,
+				54B7E9F918512A040044BD0D /* ViewContactViewController.m */,
 				54B02D71184BDCEF00DAE6A7 /* Images.xcassets */,
 				54B02D66184BDCEF00DAE6A7 /* Supporting Files */,
 			);
@@ -351,7 +351,7 @@
 				54B02D70184BDCEF00DAE6A7 /* AppDelegate.m in Sources */,
 				54B02D92184BEF1600DAE6A7 /* ContactsViewController.m in Sources */,
 				54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */,
-				544121F6188ED9C2009CEF41 /* InstagramViewController.m in Sources */,
+				5422E907188F514600E7EBDF /* InstagramViewController.m in Sources */,
 				54B02D6C184BDCEF00DAE6A7 /* main.m in Sources */,
 				54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */,
 				549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */,
