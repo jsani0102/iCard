@@ -39,9 +39,9 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Passwords do not match!" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
-    else if ([password length] < 8)
+    else if ([password length] < 5)
     {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Passwords must be at least 8 characters" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Passwords must be at least 5 characters" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
     // sign up user - all inputs are valid

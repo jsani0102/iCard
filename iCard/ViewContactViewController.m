@@ -168,8 +168,9 @@
                     [postRequest setAccount:twitterAccount];
                     // check that the Twitter following functionality succeeded
                     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                        NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-                        // DEBUGGING TOOL - NSLog(@"%@", output);
+                        // FOR DEBUGGING
+                        // NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+                        // NSLog(@"%@", output);
                         // report UIAlertView messages as appropriate
                         if ([urlResponse statusCode] == 200)
                         {

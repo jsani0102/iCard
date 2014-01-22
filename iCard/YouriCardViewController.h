@@ -13,9 +13,6 @@
 @property (nonatomic, strong) NSString *twitterHandle;
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramHandle;
-@property (weak, nonatomic) IBOutlet UITextField *instagramHandleField;
-
-- (IBAction)enterInstagram:(id)sender;
 
 - (IBAction)connectToTwitter:(id)sender;
 

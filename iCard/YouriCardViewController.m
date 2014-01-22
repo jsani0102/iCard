@@ -23,52 +23,8 @@
 	// Do any additional setup after loading the view.
 }
 
-- (IBAction)enterInstagram:(id)sender {
-    // invalid input
-    if ([self.instagramHandleField.text length] == 0)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Input"
-                                                        message:@"Please input an Instagram handle."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else
-    {
-        // handle the input appropriately with the parse backend
-        self.instagramHandle = self.instagramHandleField.text;
-        
-        PFUser *currentUser = [PFUser currentUser];
-        
-        // put the user's inputted information into the parse backend
-        PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-        [query whereKey:@"username" equalTo:currentUser.username];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                for (PFObject *object in objects) {
-                    object[@"FacebookID"] = self.facebookID;
-                    object[@"InstagramHandle"] = self.instagramHandle;
-                    [object saveInBackground];
-                }
-            } else {
-                // Log details of the failure
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Thanks!" message:@"Your Facebook, Instagram, and Twitter information are now synced with your account" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
-        
-        self.instagramHandleField.text = @"";
-        
-        // get rid of the keyboard after the user has pressed "Enter"
-        [self.instagramHandleField resignFirstResponder];
-    }
-}
 
 // the following code uses the Twitter API and the ACAccountStore class on the iOS platform that accesses all the user's accounts
-
 - (IBAction)connectToTwitter:(id)sender {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
