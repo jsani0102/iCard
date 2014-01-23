@@ -7,6 +7,7 @@
 //
 
 #import "InstagramViewController.h"
+#import <Parse/Parse.h>
 
 @implementation InstagramViewController
 
@@ -42,7 +43,48 @@
             if (endRange.location != NSNotFound)
                 token = [token substringToIndex: endRange.location];
             
+            // DEBUGGING
             NSLog(@"access token %@", token);
+            
+            // configure the Instagram API URL appropriately
+            NSString *instagramString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/?access_token=%@",token];
+            NSURL *instagramURL = [NSURL URLWithString:instagramString];
+            
+            // Parse the JSON data provided by the Instagram API to find the user's username
+            NSData *jsonData = [NSData dataWithContentsOfURL:instagramURL];
+            NSError *error = nil;
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+            NSDictionary *data = dataDictionary[@"data"];
+            NSString *instagramID = data[@"id"];
+            NSString *instagramHandle = data[@"username"];
+            NSLog(@"%@ %@", instagramID, instagramHandle);
+            
+            // query the backend to update the Instagram username and access token accordingly
+            PFUser *currentUser = [PFUser currentUser];
+            PFQuery *query = [PFQuery queryWithClassName:@"_User"];
+            [query whereKey:@"username" equalTo:currentUser.username];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                // display the appropriate message
+                if (!error) {
+                    for (PFObject *object in objects) {
+                        object[@"InstagramAccessToken"] = token;
+                        object[@"InstagramID"] = instagramID;
+                        object[@"InstagramHandle"] = instagramHandle;
+                        [object saveInBackground];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congrats!"
+                                                                        message:@"Your account has been successfully connected to Instagram!"
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+                        [alert show];
+                    }
+                }
+                else {
+                    // Log the error
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+
         }
         else
         {
