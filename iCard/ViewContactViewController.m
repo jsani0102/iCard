@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "AFHTTPRequestOperationManager.h"
 
 @interface ViewContactViewController ()
 - (void)configureView;
@@ -43,7 +44,9 @@
             for (PFObject *object in objects) {
                 self.facebookID = object[@"FacebookID"];
                 self.instagramHandle = object[@"InstagramHandle"];
+                self.instagramID = object[@"InstagramID"];
                 self.twitterHandle = object[@"TwitterHandle"];
+                self.instagramAccessToken = object[@"InstagramAccessToken"];
             }
         }
         else {
@@ -74,30 +77,13 @@
     }
     else
     {
-        // query the backend to retrieve the facebook username accordingly
-        PFUser *currentUser = [PFUser currentUser];
-        PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-        [query whereKey:@"username" equalTo:currentUser.username];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            // display the appropriate message
-            if (!error) {
-                for (PFObject *object in objects) {
-                    self.facebookID = object[@"FacebookID"];
-                }
-            }
-            else {
-                // Log the error
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-        }];
-        
         // configure the Graph API URL appropriately
         NSString *fbGraph = [@"https://graph.facebook.com/" stringByAppendingString:self.facebookID];
         NSURL *fbGraphURL = [NSURL URLWithString:fbGraph];
         
         // Parse the JSON data provided by the Graph API to find the user's ID
         NSData *jsonData = [NSData dataWithContentsOfURL:fbGraphURL];
-        NSError *error = nil;
+        NSError *error = [[NSError alloc] init];
         NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
         NSString *identifier = dataDictionary[@"id"];
         
@@ -126,9 +112,22 @@
     }
     else
     {
-        // go to the friend's instagram profile on the web
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://instagram.com/%@",self.instagramHandle]]];
-
+        // set up HTTP request data
+        
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *parameters = @{@"action": @"follow"};
+        [manager POST:[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@", self.instagramID, self.instagramAccessToken] parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject)
+        {
+            NSLog(@"JSON: %@", responseObject);
+        }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            NSLog(@"Error: %@", error);
+        }];
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.instagramHandle] stringByAppendingString:@" on Instagram!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
 }
 

@@ -14,9 +14,12 @@
 @property (nonatomic, strong) NSString *twitterHandle;
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramHandle;
-@property (weak, nonatomic) IBOutlet UIButton *facebookButton;
-@property (weak, nonatomic) IBOutlet UIButton *instagramButton;
-@property (weak, nonatomic) IBOutlet UIButton *twitterButton;
+@property (nonatomic, strong) NSString *instagramID;
+@property (nonatomic, strong) NSString *instagramAccessToken;
+@property (nonatomic, strong) IBOutlet UIButton *facebookButton;
+@property (nonatomic, strong) IBOutlet UIButton *instagramButton;
+@property (nonatomic, strong) IBOutlet UIButton *twitterButton;
+
 
 - (IBAction)addOnFacebook:(id)sender;
 - (IBAction)followOnInstagram:(id)sender;

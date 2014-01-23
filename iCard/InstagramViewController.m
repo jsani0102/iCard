@@ -16,13 +16,11 @@
     [super viewDidLoad];
     
     // initialize webview
-    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=http://localhost:8888/MAMP/&response_type=token";
+    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=http://localhost:8888/MAMP/&response_type=token&scope=basic+relationships";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
     self.webView.delegate = self;
-    
-    NSString *scope = @"basic+relationships";
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
