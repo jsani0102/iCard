@@ -112,22 +112,20 @@
     }
     else
     {
-        // set up HTTP request data
-        
+        // set up and execute HTTP request data
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *parameters = @{@"action": @"follow"};
         [manager POST:[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@", self.instagramID, self.instagramAccessToken] parameters:parameters
               success:^(AFHTTPRequestOperation *operation, id responseObject)
         {
             NSLog(@"JSON: %@", responseObject);
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.instagramHandle] stringByAppendingString:@" on Instagram!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
         }
               failure:^(AFHTTPRequestOperation *operation, NSError *error)
         {
             NSLog(@"Error: %@", error);
         }];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.instagramHandle] stringByAppendingString:@" on Instagram!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alertView show];
     }
 }
 
@@ -150,9 +148,11 @@
             if (granted)
             {
                 NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
-                if ([accountsArray count] > 0) {
+                if ([accountsArray count] > 0)
+                {
                     // grab the first Twitter account
                     ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+                    
                     // create a dictionary to change the json values in the friendship
                     NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
                     [tempDict setValue:self.twitterHandle forKey:@"screen_name"];
@@ -166,7 +166,8 @@
                                                                     parameters:tempDict];
                     [postRequest setAccount:twitterAccount];
                     // check that the Twitter following functionality succeeded
-                    [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                    [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error)
+                    {
                         // DEBUGGING
                         // NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
                         // NSLog(@"%@", output);
@@ -175,11 +176,13 @@
                         {
                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.twitterHandle] stringByAppendingString:@" on Twitter!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                             [alertView show];
+                            return;
                         }
                         else
                         {
                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:[[@"Following " stringByAppendingString:self.twitterHandle] stringByAppendingString:@" on Twitter failed!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                             [alertView show];
+                            return;
                         }
                     }];
                 }

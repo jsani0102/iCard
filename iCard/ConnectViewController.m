@@ -47,8 +47,15 @@
                             }
                             for (NSString *friend in object[@"Friends"])
                             {
+                                if ([username isEqualToString:currentUser.username])
+                                {
+                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"You cannot connect with yourself!" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                                    [alertView show];
+                                    [self.usernameField resignFirstResponder];
+                                    return;
+                                }
                                 // the inputted username is already in the friends array
-                                if ([friend isEqualToString:username])
+                                else if ([friend isEqualToString:username])
                                 {
                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:[[@"You are already connected with " stringByAppendingString:username] stringByAppendingString:@"!"] delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                                     [alertView show];
