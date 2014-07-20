@@ -134,10 +134,10 @@
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"This user has not configured their Twitter account" delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
+        return;
     }
     else
     {
-        
         // the following code uses the Twitter API and the ACAccountStore class on the iOS platform that
         // accesses all the user's account this code was adapted from http://iosameer.blogspot.com/2012/10/follow-us-on-twitter-button-integration.html
         
@@ -168,10 +168,6 @@
                     // check that the Twitter following functionality succeeded
                     [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error)
                     {
-                        // DEBUGGING
-                        // NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-                        // NSLog(@"%@", output);
-                        // report UIAlertView messages as appropriate
                         if ([urlResponse statusCode] == 200)
                         {
                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Awesome!" message:[[@"You are now following " stringByAppendingString:self.twitterHandle] stringByAppendingString:@" on Twitter!"]delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

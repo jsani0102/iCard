@@ -29,7 +29,6 @@
         // if there is no currentUser logged in, go to the login screen
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

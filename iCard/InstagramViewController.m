@@ -8,6 +8,7 @@
 
 #import "InstagramViewController.h"
 #import <Parse/Parse.h>
+#import "AFNetworking.h"
 
 @implementation InstagramViewController
 
@@ -16,81 +17,63 @@
     [super viewDidLoad];
     
     // initialize webview
-    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=http://localhost:8888/MAMP/&response_type=token&scope=basic+relationships";
+    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=http://localhost:8888/MAMP/&response_type=code&scope=basic+relationships";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
     self.webView.delegate = self;
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    NSString* urlString = [[request URL] absoluteString];
-    NSURL *Url = [request URL];
-    NSArray *UrlParts = [Url pathComponents];
-    // do any of the following here
-    if ([[UrlParts objectAtIndex:(1)] isEqualToString:@"MAMP"])
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if ([request.URL.host isEqualToString:@"localhost"])
     {
-        //if ([urlString hasPrefix: @"localhost"]) {
-        NSRange tokenParam = [urlString rangeOfString: @"access_token="];
+        NSString *urlString = [request.URL absoluteString];
+        NSString *code;
+        NSRange tokenParam = [urlString rangeOfString:@"code="];
         if (tokenParam.location != NSNotFound)
         {
-            NSString* token = [urlString substringFromIndex: NSMaxRange(tokenParam)];
+            code = [urlString substringFromIndex: NSMaxRange(tokenParam)];
             
-            // If there are more args, don't include them in the token:
-            NSRange endRange = [token rangeOfString: @"&"];
-            if (endRange.location != NSNotFound)
-                token = [token substringToIndex: endRange.location];
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            NSDictionary *parameters = @{@"grant_type": @"authorization_code",
+                                         @"code": code,
+                                         @"redirect_uri": @"http://localhost:8888/MAMP/",
+                                         @"client_id": @"967199972f2f47ca9e722f87b8105045",
+                                         @"client_secret": @"7736c9bbfd314a418d963f533658f819"};
             
-            // DEBUGGING
-            NSLog(@"access token %@", token);
-            
-            // configure the Instagram API URL appropriately
-            NSString *instagramString = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/self/?access_token=%@",token];
-            NSURL *instagramURL = [NSURL URLWithString:instagramString];
-            
-            // Parse the JSON data provided by the Instagram API to find the user's username
-            NSData *jsonData = [NSData dataWithContentsOfURL:instagramURL];
-            NSError *error = nil;
-            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-            NSDictionary *data = dataDictionary[@"data"];
-            NSString *instagramID = data[@"id"];
-            NSString *instagramHandle = data[@"username"];
-            NSLog(@"%@ %@", instagramID, instagramHandle);
-            
-            // query the backend to update the Instagram username and access token accordingly
-            PFUser *currentUser = [PFUser currentUser];
-            PFQuery *query = [PFQuery queryWithClassName:@"_User"];
-            [query whereKey:@"username" equalTo:currentUser.username];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                // display the appropriate message
-                if (!error) {
-                    for (PFObject *object in objects) {
-                        object[@"InstagramAccessToken"] = token;
-                        object[@"InstagramID"] = instagramID;
-                        object[@"InstagramHandle"] = instagramHandle;
-                        [object saveInBackground];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Congrats!"
-                                                                        message:@"Your account has been successfully connected to Instagram!"
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                    }
-                }
-                else {
-                    // Log the error
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-                }
+            [manager POST:@"https://api.instagram.com/oauth/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                PFUser *currentUser = [PFUser currentUser];
+                [currentUser setObject:responseObject[@"access_token"] forKey:@"InstagramAccessToken"];
+                [currentUser setObject:responseObject[@"user"][@"id"] forKey:@"InstagramID"];
+                [currentUser setObject:responseObject[@"user"][@"username"] forKey:@"InstagramHandle"];
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    // saved, bitches --> insert cool animation here
+                }];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"ERROR: %@ %@", error, error.userInfo);
             }];
-
         }
         else
         {
-            // Handle the access rejected case here.
-            NSLog(@"rejected case, user denied request");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                            message:@"User denied request for iCard authentication!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
-        return NO;
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
+    
     return YES;
 }
 

@@ -87,7 +87,8 @@
                               @"ACFacebookAppIdKey" : @"392820127522035",
                               @"ACFacebookPermissionsKey" : @[@"basic_info"]};
     [accountStore requestAccessToAccountsWithType:accountType options:options completion:^(BOOL granted, NSError *error) {
-        if(granted) {
+        if(granted)
+        {
             // Get the list of Facebook accounts.
             NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
             
@@ -96,6 +97,8 @@
                 // ASSUMING ONE FACEBOOK ACCOUNT - TODO - TRY TO HANDLE MULTIPLE ONES WITH "MODAL" VIEW - Jeremy Sabath
                 ACAccount *facebookAccount = [accountsArray objectAtIndex:0];
                 self.facebookID = facebookAccount.username;
+                NSLog(@"%@", facebookAccount.username);
+                NSLog(@"%@", facebookAccount.userFullName);
                 
                 // query the backend to update the facebook username accordingly
                 PFUser *currentUser = [PFUser currentUser];

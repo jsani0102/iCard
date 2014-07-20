@@ -50,7 +50,6 @@
 		54B02DB3184D48B400DAE6A7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B02DB2184D48B400DAE6A7 /* friends.png */; };
 		54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7E9F918512A040044BD0D /* ViewContactViewController.m */; };
 		54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FB1851A2950044BD0D /* Parse.framework */; };
-		54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FD1851A2A70044BD0D /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +145,6 @@
 				54B02DA5184C536700DAE6A7 /* StoreKit.framework in Frameworks */,
 				54B02DA6184C536700DAE6A7 /* SystemConfiguration.framework in Frameworks */,
 				54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */,
-				54B7E9FE1851A2A70044BD0D /* Parse.framework in Frameworks */,
 				544121F3188DC700009CEF41 /* FacebookSDK.framework in Frameworks */,
 				54B02D62184BDCEF00DAE6A7 /* CoreGraphics.framework in Frameworks */,
 				54B02D64184BDCEF00DAE6A7 /* UIKit.framework in Frameworks */,
@@ -346,7 +344,7 @@
 		54B02D54184BDCEE00DAE6A7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jayant Sani";
 				TargetAttributes = {
 					54B02D76184BDCEF00DAE6A7 = {
@@ -464,7 +462,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -503,7 +500,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -583,7 +579,6 @@
 		54B02D8C184BDCEF00DAE6A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iCard.app/iCard";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -606,7 +601,6 @@
 		54B02D8D184BDCEF00DAE6A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iCard.app/iCard";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
