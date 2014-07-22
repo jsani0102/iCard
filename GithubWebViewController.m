@@ -1,25 +1,26 @@
 //
-//  InstagramViewController.m
+//  GithubWebViewController.m
 //  iCard
 //
-//  Created by Jayant Sani on 1/21/14.
+//  Created by Jayant Sani on 7/22/14.
 //  Copyright (c) 2014 Jayant Sani. All rights reserved.
 //
 
-#import "InstagramViewController.h"
+#import "GithubWebViewController.h"
+#import "AFNetworking/AFNetworking.h"
 #import <Parse/Parse.h>
-#import "AFNetworking.h"
 
-@implementation InstagramViewController
+@interface GithubWebViewController ()
+
+@end
+
+@implementation GithubWebViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // initialize webview
-    
-    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=iCard://instagram/auth&response_type=code&scope=basic+relationships";
-    
+    NSString *fullURL = @"https://github.com/login/oauth/authorize?client_id=8b2af7a165f812509d60&scope=user&state=DCEEFWF45453sdffef424&redirect_uri=iCard://github/auth";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -42,19 +43,21 @@
         {
             NSString *code = [urlString substringFromIndex: NSMaxRange(tokenParam)];
             
-            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-            NSDictionary *parameters = @{@"grant_type": @"authorization_code",
-                                         @"code": code,
-                                         @"redirect_uri": @"iCard://instagram/auth",
-                                         @"client_id": @"967199972f2f47ca9e722f87b8105045",
-                                         @"client_secret": @"7736c9bbfd314a418d963f533658f819"};
+            NSRange endRange = [code rangeOfString: @"&"];
+            if (endRange.location != NSNotFound)
+                code = [code substringToIndex:endRange.location];
             
-            [manager POST:@"https://api.instagram.com/oauth/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            NSDictionary *parameters = @{@"code": code,
+                                         @"redirect_uri": @"iCard://github/auth",
+                                         @"client_id": @"8b2af7a165f812509d60",
+                                         @"client_secret": @"23e9f505a70764863476451d8000b039154302c4"};
+            
+            [manager POST:@"https://github.com/login/oauth/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 PFUser *currentUser = [PFUser currentUser];
-                [currentUser setObject:responseObject[@"access_token"] forKey:@"InstagramAccessToken"];
-                [currentUser setObject:responseObject[@"user"][@"id"] forKey:@"InstagramID"];
-                [currentUser setObject:responseObject[@"user"][@"username"] forKey:@"InstagramHandle"];
+                [currentUser setObject:responseObject[@"access_token"] forKey:@"GithubAccessToken"];
                 [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     // saved, bitches --> insert cool animation here
                 }];

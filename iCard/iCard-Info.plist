@@ -23,9 +23,12 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.Jayant.iCard</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb392820127522035</string>
+				<string>iCard</string>
 			</array>
 		</dict>
 	</array>

@@ -1,25 +1,28 @@
 //
-//  InstagramViewController.m
+//  LinkedInWebViewController.m
 //  iCard
 //
-//  Created by Jayant Sani on 1/21/14.
+//  Created by Jayant Sani on 7/22/14.
 //  Copyright (c) 2014 Jayant Sani. All rights reserved.
 //
 
-#import "InstagramViewController.h"
+#import "LinkedInWebViewController.h"
+#import "AFNetworking/AFNetworking.h"
 #import <Parse/Parse.h>
-#import "AFNetworking.h"
 
-@implementation InstagramViewController
+@interface LinkedInWebViewController ()
+
+@end
+
+@implementation LinkedInWebViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
     // initialize webview
-    
-    NSString *fullURL = @"https://instagram.com/oauth/authorize?client_id=967199972f2f47ca9e722f87b8105045&redirect_uri=iCard://instagram/auth&response_type=code&scope=basic+relationships";
-    
+    NSString *fullURL = @"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=77dsuygh5i0zj5&scope=r_basicprofile%20w_messages&state=DCEEFWF45453sdffef424&redirect_uri=https://iCard/linkedin/auth";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
@@ -34,7 +37,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    if ([request.URL.scheme isEqualToString:@"icard"])
+    if ([request.URL.host isEqualToString:@"icard"])
     {
         NSString *urlString = [request.URL absoluteString];
         NSRange tokenParam = [urlString rangeOfString:@"code="];
@@ -42,19 +45,21 @@
         {
             NSString *code = [urlString substringFromIndex: NSMaxRange(tokenParam)];
             
+            NSRange endRange = [code rangeOfString: @"&"];
+            if (endRange.location != NSNotFound)
+                code = [code substringToIndex:endRange.location];
+            
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
             NSDictionary *parameters = @{@"grant_type": @"authorization_code",
                                          @"code": code,
-                                         @"redirect_uri": @"iCard://instagram/auth",
-                                         @"client_id": @"967199972f2f47ca9e722f87b8105045",
-                                         @"client_secret": @"7736c9bbfd314a418d963f533658f819"};
+                                         @"redirect_uri": @"https://iCard/linkedin/auth",
+                                         @"client_id": @"77dsuygh5i0zj5",
+                                         @"client_secret": @"GZfd6NYgpEwfI3ng"};
             
-            [manager POST:@"https://api.instagram.com/oauth/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [manager POST:@"https://www.linkedin.com/uas/oauth2/accessToken" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 PFUser *currentUser = [PFUser currentUser];
-                [currentUser setObject:responseObject[@"access_token"] forKey:@"InstagramAccessToken"];
-                [currentUser setObject:responseObject[@"user"][@"id"] forKey:@"InstagramID"];
-                [currentUser setObject:responseObject[@"user"][@"username"] forKey:@"InstagramHandle"];
+                [currentUser setObject:responseObject[@"access_token"] forKey:@"LinkedInAccessToken"];
                 [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     // saved, bitches --> insert cool animation here
                 }];

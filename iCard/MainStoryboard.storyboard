@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuY-Jr-Efn">
-                                <rect key="frame" x="20" y="293" width="280" height="30"/>
+                                <rect key="frame" x="20" y="285" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Connect to Facebook">
@@ -67,6 +67,28 @@
                                 </state>
                                 <connections>
                                     <segue destination="b6e-77-MfV" kind="push" id="iEF-ft-Rx3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyW-fH-30Z">
+                                <rect key="frame" x="20" y="352" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Connect to LinkedIn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sZc-jf-DRg" kind="push" id="4G1-l0-LbF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1o-Cg-pkP">
+                                <rect key="frame" x="20" y="422" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Connect to Github">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="WWg-6g-y4B" kind="push" id="faM-6m-gCo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,7 +127,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cC9-3l-uPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="98"/>
+            <point key="canvasLocation" x="1185" y="12"/>
+        </scene>
+        <!--Linked In Web View Controller-->
+        <scene sceneID="be1-7I-AeT">
+            <objects>
+                <viewController id="sZc-jf-DRg" customClass="LinkedInWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vd1-ad-Qjm"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkv-kl-wOs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7lF-aT-Ikr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a9J-A9-QVj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dT7-gR-zYt"/>
+                    <connections>
+                        <outlet property="webView" destination="a9J-A9-QVj" id="IR3-hg-9GB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tA-OV-Ur2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="97"/>
         </scene>
         <!--Contacts View Controller - Contacts-->
         <scene sceneID="nbg-fg-RN3">
@@ -455,6 +506,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04V-Md-Jd7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="810"/>
+        </scene>
+        <!--Github Web View Controller-->
+        <scene sceneID="Bcj-V0-o1E">
+            <objects>
+                <viewController id="WWg-6g-y4B" customClass="GithubWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0OL-UL-Ojh"/>
+                        <viewControllerLayoutGuide type="bottom" id="o1C-Yi-Sy5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0zn-5Z-i2F">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wR6-0g-LSD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Pv-xK-edS"/>
+                    <connections>
+                        <outlet property="webView" destination="wR6-0g-LSD" id="5sn-dF-JfV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nme-Pu-oiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="717"/>
         </scene>
     </scenes>
     <resources>

@@ -48,6 +48,8 @@
 		54B02DAB184C555400DAE6A7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAA184C555400DAE6A7 /* LoginViewController.m */; };
 		54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B02DAD184C556200DAE6A7 /* SignupViewController.m */; };
 		54B02DB3184D48B400DAE6A7 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 54B02DB2184D48B400DAE6A7 /* friends.png */; };
+		54B0C660197ED4120022B64D /* LinkedInWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B0C65F197ED4120022B64D /* LinkedInWebViewController.m */; };
+		54B0C663197EDAB40022B64D /* GithubWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B0C662197EDAB40022B64D /* GithubWebViewController.m */; };
 		54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B7E9F918512A040044BD0D /* ViewContactViewController.m */; };
 		54B7E9FC1851A2950044BD0D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B7E9FB1851A2950044BD0D /* Parse.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,10 @@
 		54B02DAC184C556200DAE6A7 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		54B02DAD184C556200DAE6A7 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		54B02DB2184D48B400DAE6A7 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friends.png; path = iCard/friends.png; sourceTree = "<group>"; };
+		54B0C65E197ED4120022B64D /* LinkedInWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkedInWebViewController.h; path = ../LinkedInWebViewController.h; sourceTree = "<group>"; };
+		54B0C65F197ED4120022B64D /* LinkedInWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkedInWebViewController.m; path = ../LinkedInWebViewController.m; sourceTree = "<group>"; };
+		54B0C661197EDAB40022B64D /* GithubWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GithubWebViewController.h; path = ../GithubWebViewController.h; sourceTree = "<group>"; };
+		54B0C662197EDAB40022B64D /* GithubWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GithubWebViewController.m; path = ../GithubWebViewController.m; sourceTree = "<group>"; };
 		54B7E9F818512A040044BD0D /* ViewContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewContactViewController.h; sourceTree = "<group>"; };
 		54B7E9F918512A040044BD0D /* ViewContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewContactViewController.m; sourceTree = "<group>"; };
 		54B7E9FB1851A2950044BD0D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -247,6 +253,10 @@
 				54B02D91184BEF1600DAE6A7 /* ContactsViewController.m */,
 				5422E905188F514600E7EBDF /* InstagramViewController.h */,
 				5422E906188F514600E7EBDF /* InstagramViewController.m */,
+				54B0C65E197ED4120022B64D /* LinkedInWebViewController.h */,
+				54B0C65F197ED4120022B64D /* LinkedInWebViewController.m */,
+				54B0C661197EDAB40022B64D /* GithubWebViewController.h */,
+				54B0C662197EDAB40022B64D /* GithubWebViewController.m */,
 				54B02DA9184C555400DAE6A7 /* LoginViewController.h */,
 				54B02DAA184C555400DAE6A7 /* LoginViewController.m */,
 				54B02DAC184C556200DAE6A7 /* SignupViewController.h */,
@@ -402,6 +412,7 @@
 				5422E9201891B62F00E7EBDF /* AFSecurityPolicy.m in Sources */,
 				54B02DAB184C555400DAE6A7 /* LoginViewController.m in Sources */,
 				5422E91F1891B62F00E7EBDF /* AFNetworkReachabilityManager.m in Sources */,
+				54B0C660197ED4120022B64D /* LinkedInWebViewController.m in Sources */,
 				542AFF22184ECF0F00D04465 /* ConnectViewController.m in Sources */,
 				5422E9211891B62F00E7EBDF /* AFURLConnectionOperation.m in Sources */,
 				5422E91C1891B62F00E7EBDF /* AFHTTPRequestOperation.m in Sources */,
@@ -414,6 +425,7 @@
 				54B7E9FA18512A040044BD0D /* ViewContactViewController.m in Sources */,
 				5422E9231891B62F00E7EBDF /* AFURLResponseSerialization.m in Sources */,
 				5422E907188F514600E7EBDF /* InstagramViewController.m in Sources */,
+				54B0C663197EDAB40022B64D /* GithubWebViewController.m in Sources */,
 				54B02D6C184BDCEF00DAE6A7 /* main.m in Sources */,
 				54B02DAE184C556200DAE6A7 /* SignupViewController.m in Sources */,
 				549ACF6918503BFD00A513FC /* YouriCardViewController.m in Sources */,
@@ -539,7 +551,6 @@
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
-					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
 					/Users/sunilsani/Downloads,
 					/Users/sunilsani/Documents/FacebookSDK,
 				);
@@ -563,7 +574,6 @@
 					"$(inherited)",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard",
 					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard",
-					"/Users/sunilsani/Documents/Xcode\\ Projects/iCard/iCard/iCard",
 					/Users/sunilsani/Downloads,
 					/Users/sunilsani/Documents/FacebookSDK,
 				);
